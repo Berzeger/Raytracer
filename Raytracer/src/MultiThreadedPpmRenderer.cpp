@@ -23,16 +23,14 @@ void MultiThreadedPpmRenderer::Render(const std::vector<Sphere> &spheres) const
 
 	unsigned cores = std::thread::hardware_concurrency();
 	unsigned max = _height * _width;
-	volatile std::atomic<unsigned> count(0);
 	std::vector<std::future<void>> futures;
 
-	while (cores--)
+	for (unsigned i = 0; i < cores; ++i)
 	{
-		futures.emplace_back(std::async([=, &count]() 
+		futures.emplace_back(std::async([=]() 
 		{
-			while (true)
+			for (unsigned index = i; index < max; index += cores)
 			{
-				unsigned index = count++;
 				if (index >= max)
 				{
 					break;
@@ -59,8 +57,7 @@ void MultiThreadedPpmRenderer::Render(const std::vector<Sphere> &spheres) const
 	std::ofstream ofs("./multithreaded_render.ppm", std::ios::out | std::ios::binary);
 	ofs << "P6\n" << _width << " " << _height << "\n255\n";
 
-	unsigned upperBound = _width * _height;
-	for (unsigned i = 0; i < upperBound; ++i)
+	for (unsigned i = 0; i < max; ++i)
 	{
 		ofs << (unsigned char)(std::min(float(1), image[i].X) * 255) <<
 			(unsigned char)(std::min(float(1), image[i].Y) * 255) <<
