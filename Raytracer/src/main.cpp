@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "Timer.h"
 #include "Sphere.h"
 #include "PpmRenderer.h"
 
@@ -16,9 +17,14 @@ int main(int argc, char ** argv)
 	// light
 	spheres.push_back(Sphere(Vec3f( 0.0,     20, -30),     3, Vec3f(0.00, 0.00, 0.00), 0, 0.0, Vec3f(3)));
 
+	Timer timer;
+	timer.start();
 	PpmRenderer renderer(1920, 1080, 30);
 	renderer.Render(spheres);
+	timer.end();
 
-	system("pause");
+	std::cout << "Rendered in ";
+	timer.printMs();
+	std::cin.get();
 	return 0;
 }

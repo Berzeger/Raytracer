@@ -125,12 +125,14 @@
   <ItemGroup>
     <ClCompile Include="src\PpmRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\Tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\PpmRenderer.h" />
     <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\Sphere.h" />
+    <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\Tracer.h" />
     <ClInclude Include="src\Vector3.h" />
   </ItemGroup>
