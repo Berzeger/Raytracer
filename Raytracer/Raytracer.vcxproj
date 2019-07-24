@@ -123,11 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\PpmRenderer.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Sphere.cpp" />
+    <ClCompile Include="src\Tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PpmRenderer.h" />
+    <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\Sphere.h" />
+    <ClInclude Include="src\Tracer.h" />
     <ClInclude Include="src\Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
