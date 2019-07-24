@@ -17,9 +17,9 @@ public:
 	Vector3<T> operator * (const Vector3<T> &v) const { return Vector3<T>(X * v.X, Y * v.Y, Z * v.Z); }
 	Vector3<T> operator + (const Vector3<T> &v) const { return Vector3<T>(X + v.X, Y + v.Y, Z + v.Z); }
 	Vector3<T> operator - (const Vector3<T> &v) const { return Vector3<T>(X - v.X, Y - v.Y, Z - v.Z); }
-	Vector3<T>& operator *= (const Vector3<T> &v) const { X *= v.X; Y *= v.Y; Z *= v.Z; return *this; }
-	Vector3<T>& operator += (const Vector3<T> &v) const { X += v.X; Y += v.Y; Z += v.Z; return *this; }
-	Vector3<T>& operator -= (const Vector3<T> &v) const { X -= v.X; Y -= v.Y; Z -= v.Z; return *this; }
+	Vector3<T>& operator *= (const Vector3<T> &v) { X *= v.X; Y *= v.Y; Z *= v.Z; return *this; }
+	Vector3<T>& operator += (const Vector3<T> &v) { X += v.X; Y += v.Y; Z += v.Z; return *this; }
+	Vector3<T>& operator -= (const Vector3<T> &v) { X -= v.X; Y -= v.Y; Z -= v.Z; return *this; }
 	Vector3<T> operator - () const { return Vector3<T>(-X, -Y, -Z); }
 	T Dot(const Vector3<T> &v) const { return X * v.X + Y * v.Y + Z * v.Z; }
 	T LengthSqrt() const { return X * X + Y * Y + Z * Z; }

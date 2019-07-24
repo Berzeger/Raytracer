@@ -21,7 +21,7 @@ void PpmRenderer::Render(const std::vector<Sphere> &spheres) const
 	// trace rays
 	for (unsigned y = 0; y < _height; ++y)
 	{
-		for (unsigned x = 0; x < _width; ++x)
+		for (unsigned x = 0; x < _width; ++x, ++pixel)
 		{
 			float xx = (float)(2 * ((x + 0.5) * invWidth) - 1) * _angle * _aspectRatio;
 			float yy = (float)(1 - 2 * ((y + 0.5) * invHeight)) * _angle;

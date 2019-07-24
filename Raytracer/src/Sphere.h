@@ -15,6 +15,7 @@ public:
 	Sphere(const Vec3f &center, float radius, const Vec3f &surfaceColor, float reflection = 0, float transparency = 0, const Vec3f &emissionColor = 0) :
 		Center(center),
 		Radius(radius),
+		RadiusSqr(radius * radius),
 		SurfaceColor(surfaceColor),
 		Reflection(reflection),
 		Transparency(transparency),
