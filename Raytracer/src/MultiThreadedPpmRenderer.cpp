@@ -17,12 +17,12 @@ MultiThreadedPpmRenderer::MultiThreadedPpmRenderer(unsigned width, unsigned heig
 
 void MultiThreadedPpmRenderer::Render(const std::vector<Sphere> &spheres) const
 {
-	Vec3f * image = new Vec3f[_width * _width];
+	unsigned max = _height * _width;
+	Vec3f * image = new Vec3f[max];
 	float invWidth = 1 / float(_width);
 	float invHeight = 1 / float(_height);
 
 	unsigned cores = std::thread::hardware_concurrency();
-	unsigned max = _height * _width;
 	std::vector<std::future<void>> futures;
 
 	for (unsigned i = 0; i < cores; ++i)

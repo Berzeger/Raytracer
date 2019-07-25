@@ -13,7 +13,7 @@ PpmRenderer::PpmRenderer(unsigned width, unsigned height, float fov)
 
 void PpmRenderer::Render(const std::vector<Sphere> &spheres) const
 {
-	Vec3f * image = new Vec3f[_width * _width];
+	Vec3f * image = new Vec3f[_width * _height];
 	Vec3f * pixel = image;
 	float invWidth = 1 / float(_width);
 	float invHeight = 1 / float(_height);
